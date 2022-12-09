@@ -4,10 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Fetch Data From XML File" Height="800" Width="1500">
+        Title="Fetch Data From XML File" Height="820" Width="1500">
+
     <Grid Background="#FFD0FFFF">
-        <DockPanel  Background="#FFD0FFFF" Margin="5,10,5,5">
-            <WrapPanel HorizontalAlignment="Center" DockPanel.Dock="Top" Margin="0,0,0,10">
+ <!-- Input area for input channel name -->
+        <DockPanel  Background="#FFD0FFFF" Margin="5,10,5,50">
+            <WrapPanel HorizontalAlignment="Left" DockPanel.Dock="Top" Margin="0,0,0,10">
                 <Label Content="Enter XML file" Margin="5"/>
                 <Button Width="75" Height="30" Name="btnOpenFile" Click="btnOpenFile_Click" BorderBrush="White" Background="#FF00FF90">Open file</Button>
                 <Label Visibility="Hidden" Content="           Enter Input Count" Margin="5"/>
@@ -21,10 +23,10 @@
                     <ComboBoxItem>7</ComboBoxItem>
                 </ComboBox>
                 <Label Content="Export File"/>
-                <CheckBox Visibility="Visible" Margin="5" Name="exportFile"/>
+                <CheckBox Visibility="Visible" IsChecked="True"  Margin="5" Name="exportFile"/>
                 <Grid Margin="5,15,0,0">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width = "Auto" />
+                        <ColumnDefinition />
                         <ColumnDefinition />
                         <ColumnDefinition />
                         <ColumnDefinition />
@@ -33,7 +35,7 @@
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition/>
-                        
+
                     </Grid.RowDefinitions>
                     <TextBox Name="text0" Grid.Column = "0" Margin="0,0,10,0" FontSize="30" Width= "250" />
                     <TextBox Name="text1" Grid.Column = "1" Margin="0,0,10,0" FontSize="30" Width= "250" />
@@ -41,9 +43,32 @@
                     <TextBox Name="text3" Grid.Column = "3" Margin="0,0,10,0" FontSize="30" Width= "250" />
                     <TextBox Name="text4" Grid.Column = "4" Margin="0,0,10,0" FontSize="30" Width= "250" />
                 </Grid>
-                <Button Click="Fetch_Data" Margin="5" Height="35" Background="#FF00FF90">Fetch Data</Button>
+                <Button Click="Fetch_Data" Height="26" Margin="0,0,0,10" VerticalAlignment="Bottom" Background="#FF00FF90" Content="Fetch Data" Width="78"/>
             </WrapPanel>
-            <TextBox FontSize="24" Text="" Name="txtEditor" FontWeight="Bold" />
+            <TextBox Name="history" Text="History" FontWeight="Bold" FontSize="25" Margin="5,80,5,0" Width="250" Height="451" VerticalAlignment="Top"/>
+            <TextBox FontSize="24" Text="" Name="txtEditor" FontWeight="Bold" Margin="5,80,5,0"/>
         </DockPanel>
+        <Label Content="History" VerticalAlignment="Top" Margin="5,165,95,0" Height="28"/>
+        <Button  Margin="10,5,0,80" Height="35" Background="#FF00FF90" Width="150" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="Clear_history">Clear History</Button>
+        <ProgressBar Minimum="0" Maximum="1" Name="progressBar" Height="20" VerticalAlignment="Bottom" Margin="5,779,5,0" Foreground="#FF12FDCD" BorderBrush="#FFD0FFFF" Background="#FFD3F9EE"/>
+        
+<!-- ComboBox for select channel name -->
+        <ComboBox Width="150" VerticalAlignment="Top" Height="50" Name="selectId"  HorizontalAlignment="Left" Margin="10,115,0,629">
+            <ComboBoxItem IsSelected="True">--Select Channel ID--</ComboBoxItem>
+        </ComboBox>
+        <ComboBox Width="150" VerticalAlignment="Top" Height="50" Name="selectId1"  HorizontalAlignment="Left" Margin="165,115,0,629" >
+            <ComboBoxItem IsSelected="True">--Select Channel ID--</ComboBoxItem>
+        </ComboBox>
+        <ComboBox Width="150" VerticalAlignment="Top" Height="50" Name="selectId2"  HorizontalAlignment="Left" Margin="320,115,0,629" >
+            <ComboBoxItem IsSelected="True">--Select Channel ID--</ComboBoxItem>
+        </ComboBox>
+        <ComboBox Width="150" VerticalAlignment="Top" Height="50" Name="selectId3"  HorizontalAlignment="Left" Margin="475,115,0,629" >
+            <ComboBoxItem IsSelected="True">--Select Channel ID--</ComboBoxItem>
+        </ComboBox>
+        <ComboBox Width="150" VerticalAlignment="Top" Height="50" Name="selectId4"  HorizontalAlignment="Left" Margin="630,115,0,629" >
+            <ComboBoxItem IsSelected="True">--Select Channel ID--</ComboBoxItem>
+        </ComboBox>
+        <Label VerticalAlignment="Top" Content="Select Channel ID" Margin="788,113,5,0"/>
+
     </Grid>
 </Window>
