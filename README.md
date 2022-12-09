@@ -2,7 +2,7 @@
 - Fetch Channels From XML File
 
 
-![ur](https://raw.githubusercontent.com/goodluck3301/FetchChannelsFromXML/master/FetchFromXML/bin/Debug/net6.0-windows/img.png?token=GHSAT0AAAAAAB4A5MUTC7NVLJKOCBPW4TK2Y4TSJLQ)
+![ur](https://github.com/goodluck3301/FetchChannelsFromXML/blob/master/FetchFromXML/bin/Debug/net6.0-windows/img.png)
 
 
 ## XML Type
