@@ -5,7 +5,7 @@
 ![ur](https://github.com/goodluck3301/FetchChannelsFromXML/blob/master/FetchFromXML/bin/Debug/net6.0-windows/img.png)
 
 
-## XML Type
+## XML file must contain this tags and atributes
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE tv SYSTEM "https://iptvx.one/xmltv.dtd">
