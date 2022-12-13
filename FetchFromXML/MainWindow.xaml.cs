@@ -8,6 +8,7 @@ using System.Xml.Linq;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 
+
 namespace FetchFromXML
 {
     public class NameAndNumber
@@ -30,8 +31,10 @@ namespace FetchFromXML
     public partial class MainWindow : Window
     {
         String filePath = "";
+        String ChannelFilePath = "";
         static string allHistory = "";
         List<string> channelsList = new List<string>();
+        string[] channelNames;
 
         public MainWindow() { 
             InitializeComponent();
@@ -87,6 +90,9 @@ namespace FetchFromXML
             String allData = "";
             progressBar.IsIndeterminate = true;
 
+
+            
+
             if (filePath != "")
             {
                 String value = text0.Text;
@@ -94,9 +100,18 @@ namespace FetchFromXML
                 String value2 = text2.Text;
                 String value3 = text3.Text;
                 String value4 = text4.Text;
+                String value5 = text5.Text;
+                String value6 = text6.Text;
+                String value7 = text7.Text;
+                String value8 = text8.Text;
+                String value9 = text9.Text;
 
                 try
                 {
+                    if (channelNames.Length != 0)
+                        foreach (string line in channelNames)
+                            allData += fullNameMethod(line);
+
                     if (value != "")
                     {
                         allData += fullNameMethod(value);
@@ -120,6 +135,31 @@ namespace FetchFromXML
                     {
                         allData += fullNameMethod(value4);
                         appendTextInFile($"{value4}", "history.txt");
+                    }
+                    if (value5 != "")
+                    {
+                        allData += fullNameMethod(value5);
+                        appendTextInFile($"{value5}", "history.txt");
+                    }
+                    if (value6 != "")
+                    {
+                        allData += fullNameMethod(value6);
+                        appendTextInFile($"{value6}", "history.txt");
+                    }
+                    if (value7 != "")
+                    {
+                        allData += fullNameMethod(value7);
+                        appendTextInFile($"{value7}", "history.txt");
+                    }
+                    if (value8 != "")
+                    {
+                        allData += fullNameMethod(value8);
+                        appendTextInFile($"{value8}", "history.txt");
+                    }
+                    if (value9 != "")
+                    {
+                        allData += fullNameMethod(value9);
+                        appendTextInFile($"{value9}", "history.txt");
                     }
                     if (selectId.Text != "" || selectId.Text != "--Select Channel ID--")
                     {
@@ -230,6 +270,16 @@ namespace FetchFromXML
         {
             clearTextFromFile("history.txt");
             history.Text = "";
+        }
+
+        private void GetChannelFromFile(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == true)
+            {
+                ChannelFilePath = openFileDialog.FileName;
+                channelNames = File.ReadAllLines(ChannelFilePath);
+            }
         }
     }
 }

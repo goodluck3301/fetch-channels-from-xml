@@ -32,6 +32,11 @@
                         <ColumnDefinition />
                         <ColumnDefinition />
                         <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -42,11 +47,16 @@
                     <TextBox Name="text2" Grid.Column = "2" Margin="0,0,10,0" FontSize="30" Width= "250"/>
                     <TextBox Name="text3" Grid.Column = "3" Margin="0,0,10,0" FontSize="30" Width= "250" />
                     <TextBox Name="text4" Grid.Column = "4" Margin="0,0,10,0" FontSize="30" Width= "250" />
+                    <TextBox Name="text5" Grid.Column = "5" Margin="0,0,10,0" FontSize="30" Width= "250" />
+                    <TextBox Name="text6" Grid.Column = "6" Margin="0,0,10,0" FontSize="30" Width= "250" />
+                    <TextBox Name="text7" Grid.Column = "7" Margin="0,0,10,0" FontSize="30" Width= "250"/>
+                    <TextBox Name="text8" Grid.Column = "8" Margin="0,0,10,0" FontSize="30" Width= "250" />
+                    <TextBox Name="text9" Grid.Column = "9" Margin="0,0,10,0" FontSize="30" Width= "250" />
                 </Grid>
                 <Button Click="Fetch_Data" Height="26" Margin="0,0,0,10" VerticalAlignment="Bottom" Background="#FF00FF90" Content="Fetch Data" Width="78"/>
             </WrapPanel>
-            <TextBox Name="history" Text="History" FontWeight="Bold" FontSize="25" Margin="5,80,5,0" Width="250" Height="451" VerticalAlignment="Top"/>
-            <TextBox FontSize="24" Text="" Name="txtEditor" FontWeight="Bold" Margin="5,80,5,0"/>
+            <TextBox Padding="5,5,0,0" Name="history" Text="History" FontWeight="Bold" FontSize="25" Margin="5,80,5,0" Width="250" Height="451" VerticalAlignment="Top"/>
+            <TextBox Padding="5,5,0,0" FontSize="24" Text="" Name="txtEditor" FontWeight="Bold" Margin="5,80,5,0"/>
         </DockPanel>
         <Label Content="History" VerticalAlignment="Top" Margin="5,165,95,0" Height="28"/>
         <Button  Margin="10,5,0,80" Height="35" Background="#FF00FF90" Width="150" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="Clear_history">Clear History</Button>
@@ -69,6 +79,7 @@
             <ComboBoxItem IsSelected="True">--Select Channel ID--</ComboBoxItem>
         </ComboBox>
         <Label VerticalAlignment="Top" Content="Select Channel ID" Margin="788,113,5,0"/>
+        <Button  Height="26" Background="#FF00FF90" Content="Select Channel from file" Width="200" VerticalAlignment="Top"  Click="GetChannelFromFile" Margin="15"/>
 
     </Grid>
 </Window>
