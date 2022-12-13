@@ -2,7 +2,7 @@
 - Fetch Channels From XML File
 
 
-![ur](https://github.com/goodluck3301/FetchChannelsFromXML/blob/master/FetchFromXML/bin/Debug/net6.0-windows/img.png)
+![ur](https://github.com/goodluck3301/FetchChannelsFromXML/blob/master/FetchFromXML/bin/Debug/net6.0-windows/Capture.PNG)
 
 
 ## XML file must contain this tags and atributes
@@ -23,3 +23,11 @@
   </programme>
 </tv>
 ```
+
+## Channel Id Names Must Be This Format In File
+```txt
+zvyazda-by
+tatarstan24
+niki-kids
+```
+
