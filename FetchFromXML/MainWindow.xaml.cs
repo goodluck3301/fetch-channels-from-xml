@@ -7,6 +7,7 @@ using System.IO;
 using System.Xml.Linq;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
+using System.Text;
 
 
 namespace FetchFromXML
@@ -87,11 +88,12 @@ namespace FetchFromXML
         //Fetching Data
         private void Fetch_Data(object sender, RoutedEventArgs e)
         {
-            String allData = "";
+            //String allData = "";
+            StringBuilder allData = new StringBuilder();
+            allData.Append("");
+
             progressBar.IsIndeterminate = true;
 
-
-            
 
             if (filePath != "")
             {
@@ -110,80 +112,80 @@ namespace FetchFromXML
                 {
                     if (channelNames.Length != 0)
                         foreach (string line in channelNames)
-                            allData += fullNameMethod(line);
+                            allData.Append(fullNameMethod(line));
 
                     if (value != "")
                     {
-                        allData += fullNameMethod(value);
+                        allData.Append(fullNameMethod(value));
                         appendTextInFile($"{value}","history.txt");
                     }
                     if (value1 != "")
                     {
-                        allData += fullNameMethod(value1);
+                        allData.Append(fullNameMethod(value1));
                         appendTextInFile($"{value1}", "history.txt");
                     }
                     if (value2 != "") {
-                        allData += fullNameMethod(value2);
+                        allData.Append(fullNameMethod(value2));
                         appendTextInFile($"{value2}", "history.txt");
                     }
                     if (value3 != "")
                     {
-                        allData += fullNameMethod(value3);
+                        allData.Append(fullNameMethod(value3));
                         appendTextInFile($"{value3}", "history.txt");
                     }
                     if (value4 != "")
                     {
-                        allData += fullNameMethod(value4);
+                        allData.Append(fullNameMethod(value4));
                         appendTextInFile($"{value4}", "history.txt");
                     }
                     if (value5 != "")
                     {
-                        allData += fullNameMethod(value5);
+                        allData.Append(fullNameMethod(value5));
                         appendTextInFile($"{value5}", "history.txt");
                     }
                     if (value6 != "")
                     {
-                        allData += fullNameMethod(value6);
+                        allData.Append(fullNameMethod(value6));
                         appendTextInFile($"{value6}", "history.txt");
                     }
                     if (value7 != "")
                     {
-                        allData += fullNameMethod(value7);
+                        allData.Append(fullNameMethod(value7));
                         appendTextInFile($"{value7}", "history.txt");
                     }
                     if (value8 != "")
                     {
-                        allData += fullNameMethod(value8);
+                        allData.Append(fullNameMethod(value8));
                         appendTextInFile($"{value8}", "history.txt");
                     }
                     if (value9 != "")
                     {
-                        allData += fullNameMethod(value9);
+                        allData.Append(fullNameMethod(value9));
                         appendTextInFile($"{value9}", "history.txt");
                     }
                     if (selectId.Text != "" || selectId.Text != "--Select Channel ID--")
                     {
-                        allData += fullNameMethod(selectId.Text);
+                        allData.Append(fullNameMethod(selectId.Text));
                         appendTextInFile($"{selectId.Text}", "history.txt");
                     }
                     if (selectId1.Text != "" || selectId1.Text != "--Select Channel ID--")
                     {
-                        allData += fullNameMethod(selectId1.Text);
+                        allData.Append(fullNameMethod(selectId1.Text));
                         appendTextInFile($"{selectId1.Text}", "history.txt");
                     }
                     if (selectId2.Text != "" || selectId2.Text != "--Select Channel ID--")
                     {
-                        allData += fullNameMethod(selectId2.Text);
+                        allData.Append(fullNameMethod(selectId2.Text));
                         appendTextInFile($"{selectId2.Text}", "history.txt");
                     }
                     if (selectId3.Text != "" || selectId3.Text != "--Select Channel ID--")
-                    { 
-                        allData += fullNameMethod(selectId3.Text);
+                    {
+                        allData.Append(fullNameMethod(selectId3.Text));
                         appendTextInFile($"{selectId3.Text}", "history.txt");
                     }
                     if (selectId4.Text != "" || selectId4.Text != "--Select Channel ID--")
                     {
-                        allData += fullNameMethod(selectId4.Text);
+                        allData.Append(fullNameMethod(selectId4.Text));
                         appendTextInFile($"{selectId4.Text}", "history.txt");
                     }
                 }
@@ -194,7 +196,7 @@ namespace FetchFromXML
 
                 txtEditor.Text = $"{allData}\r\n";
                 if (exportFile.IsChecked == true)
-                    writeTextInFile(allData, "channel.xml");
+                    writeTextInFile(ToString(), "channel.xml");
             }
             else
                 MessageBox.Show("Please Select File...", "Checking...");
@@ -254,7 +256,6 @@ namespace FetchFromXML
             {
                 MessageBox.Show("Error Can't clear history (");
             }
-
         }
 
         private static async Task readFromFile(string fileName) {
