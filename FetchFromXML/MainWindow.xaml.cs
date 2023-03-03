@@ -8,7 +8,7 @@ using System.Xml.Linq;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using System.Text;
-
+using System.Threading;
 
 namespace FetchFromXML
 {
@@ -39,20 +39,22 @@ namespace FetchFromXML
 
         public MainWindow() { 
             InitializeComponent();
-            readFromFile("history.txt");
-            history.Text = allHistory;
+            try
+            {
+                readFromFile("history.txt");
+                history.Text = allHistory;
+            }catch (Exception e) { }
         }
         
         // Select File using Btn
         private void btnOpenFile_Click(object sender, RoutedEventArgs e)
         {
-            selectId.Items.Clear();
+            selectId0.Items.Clear();
             selectId1.Items.Clear();
             selectId2.Items.Clear();
             selectId3.Items.Clear();
-            selectId4.Items.Clear();
+         
 
-            progressBar.IsIndeterminate = true;
             OpenFileDialog openFileDialog = new OpenFileDialog();
             if (openFileDialog.ShowDialog() == true)
             {
@@ -74,26 +76,20 @@ namespace FetchFromXML
                 });
 
                 foreach (string el in channelsList){
-                    selectId.Items.Add(el);
+                    selectId0.Items.Add(el);
                     selectId1.Items.Add(el);
                     selectId2.Items.Add(el);
                     selectId3.Items.Add(el);
-                    selectId4.Items.Add(el);
                     txtEditor.Text += $"{el}, \n";
                 }
             }
-            progressBar.IsIndeterminate = false;
         }
 
         //Fetching Data
         private void Fetch_Data(object sender, RoutedEventArgs e)
         {
-            //String allData = "";
             StringBuilder allData = new StringBuilder();
             allData.Append("");
-
-            progressBar.IsIndeterminate = true;
-
 
             if (filePath != "")
             {
@@ -108,11 +104,34 @@ namespace FetchFromXML
                 String value8 = text8.Text;
                 String value9 = text9.Text;
 
+                String value10 = text10.Text;
+                String value11 = text11.Text;
+                String value12 = text12.Text;
+                String value13 = text13.Text;
+                String value14 = text14.Text;
+                String value15 = text15.Text;
+                String value16 = text16.Text;
+                String value17 = text17.Text;
+                String value18 = text18.Text;
+
+                String value19 = text19.Text;
+                String value20 = text20.Text;
+                String value21 = text21.Text;
+                String value22 = text22.Text;
+                String value23 = text23.Text;
+                String value24 = text24.Text;
+                String value25 = text25.Text;
+                String value26 = text26.Text;
+                String value27 = text27.Text;
+                String value28 = text28.Text;
+                String value29 = text29.Text;
+
                 try
                 {
-                    if (channelNames.Length != 0)
-                        foreach (string line in channelNames)
-                            allData.Append(fullNameMethod(line));
+                    if(channelNames != null)
+                        if (channelNames.Length != 0)
+                            foreach (string line in channelNames)
+                                allData.Append(fullNameMethod(line));
 
                     if (value != "")
                     {
@@ -163,10 +182,111 @@ namespace FetchFromXML
                         allData.Append(fullNameMethod(value9));
                         appendTextInFile($"{value9}", "history.txt");
                     }
-                    if (selectId.Text != "" || selectId.Text != "--Select Channel ID--")
+                    if (value10 != "")
                     {
-                        allData.Append(fullNameMethod(selectId.Text));
-                        appendTextInFile($"{selectId.Text}", "history.txt");
+                        allData.Append(fullNameMethod(value10));
+                        appendTextInFile($"{value10}", "history.txt");
+                    }
+                    if (value11 != "")
+                    {
+                        allData.Append(fullNameMethod(value11));
+                        appendTextInFile($"{value11}", "history.txt");
+                    }
+                    if (value12 != "")
+                    {
+                        allData.Append(fullNameMethod(value12));
+                        appendTextInFile($"{value12}", "history.txt");
+                    }
+                    if (value13 != "")
+                    {
+                        allData.Append(fullNameMethod(value13));
+                        appendTextInFile($"{value13}", "history.txt");
+                    }
+                    if (value14 != "")
+                    {
+                        allData.Append(fullNameMethod(value14));
+                        appendTextInFile($"{value14}", "history.txt");
+                    }
+                    if (value15 != "")
+                    {
+                        allData.Append(fullNameMethod(value15));
+                        appendTextInFile($"{value15}", "history.txt");
+                    }
+                    if (value16 != "")
+                    {
+                        allData.Append(fullNameMethod(value16));
+                        appendTextInFile($"{value16}", "history.txt");
+                    }
+                    if (value17 != "")
+                    {
+                        allData.Append(fullNameMethod(value17));
+                        appendTextInFile($"{value17}", "history.txt");
+                    }
+                    if (value18 != "")
+                    {
+                        allData.Append(fullNameMethod(value18));
+                        appendTextInFile($"{value18}", "history.txt");
+                    }
+                    if (value19 != "")
+                    {
+                        allData.Append(fullNameMethod(value19));
+                        appendTextInFile($"{value19}", "history.txt");
+                     }
+                    if (value20 != "")
+                    {
+                        allData.Append(fullNameMethod(value20));
+                        appendTextInFile($"{value20}", "history.txt");
+                    }
+                    if (value21 != "")
+                    {
+                        allData.Append(fullNameMethod(value21));
+                        appendTextInFile($"{value21}", "history.txt");
+                    }
+                    if (value22 != "")
+                    {
+                        allData.Append(fullNameMethod(value22));
+                        appendTextInFile($"{value22}", "history.txt");
+                    }
+                    if (value23 != "")
+                    {
+                        allData.Append(fullNameMethod(value23));
+                        appendTextInFile($"{value23}", "history.txt");
+                    }
+                    if (value24 != "")
+                    {
+                        allData.Append(fullNameMethod(value24));
+                        appendTextInFile($"{value24}", "history.txt");
+                    }
+                    if (value25 != "")
+                    {
+                        allData.Append(fullNameMethod(value25));
+                        appendTextInFile($"{value25}", "history.txt");
+                    }
+                    if (value26 != "")
+                    {
+                        allData.Append(fullNameMethod(value26));
+                        appendTextInFile($"{value26}", "history.txt");
+                    }
+                    if (value27 != "")
+                    {
+                        allData.Append(fullNameMethod(value27));
+                        appendTextInFile($"{value27}", "history.txt");
+                    }
+                    if (value28 != "")
+                    {
+                        allData.Append(fullNameMethod(value28));
+                        appendTextInFile($"{value28}", "history.txt");
+                    }
+                    if (value29 != "")
+                    {
+                        allData.Append(fullNameMethod(value29));
+                        appendTextInFile($"{value29}", "history.txt");
+                    }
+                        // ComboBoxs
+                    if (selectId0.Text != "" || selectId0.Text != "--Select Channel ID--")
+                    {
+                        allData.Append(fullNameMethod(selectId0.Text));
+                        appendTextInFile($"{selectId0.Text}", "history.txt");
                     }
                     if (selectId1.Text != "" || selectId1.Text != "--Select Channel ID--")
                     {
@@ -183,11 +303,6 @@ namespace FetchFromXML
                         allData.Append(fullNameMethod(selectId3.Text));
                         appendTextInFile($"{selectId3.Text}", "history.txt");
                     }
-                    if (selectId4.Text != "" || selectId4.Text != "--Select Channel ID--")
-                    {
-                        allData.Append(fullNameMethod(selectId4.Text));
-                        appendTextInFile($"{selectId4.Text}", "history.txt");
-                    }
                 }
                 catch
                 {
@@ -196,11 +311,10 @@ namespace FetchFromXML
 
                 txtEditor.Text = $"{allData}\r\n";
                 if (exportFile.IsChecked == true)
-                    writeTextInFile(ToString(), "channel.xml");
+                    writeTextInFile(allData.ToString(), "channel.xml");
             }
             else
                 MessageBox.Show("Please Select File...", "Checking...");
-            progressBar.IsIndeterminate = false;
         }
 
         public string fullNameMethod(string value)
@@ -275,12 +389,16 @@ namespace FetchFromXML
 
         private void GetChannelFromFile(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            if (openFileDialog.ShowDialog() == true)
+            try
             {
-                ChannelFilePath = openFileDialog.FileName;
-                channelNames = File.ReadAllLines(ChannelFilePath);
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                if (openFileDialog.ShowDialog() == true)
+                {
+                    ChannelFilePath = openFileDialog.FileName;
+                    channelNames = File.ReadAllLines(ChannelFilePath);
+                }
             }
+            catch (Exception err) { }
         }
     }
 }

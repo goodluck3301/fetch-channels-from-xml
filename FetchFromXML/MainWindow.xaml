@@ -4,82 +4,143 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Fetch Data From XML File" Height="820" Width="1500">
+        Title="Fetch Data From XML File" Height="1000" Width="1500">
 
-    <Grid Background="#FFD0FFFF">
- <!-- Input area for input channel name -->
-        <DockPanel  Background="#FFD0FFFF" Margin="5,10,5,50">
-            <WrapPanel HorizontalAlignment="Left" DockPanel.Dock="Top" Margin="0,0,0,10">
-                <Label Content="Enter XML file" Margin="5"/>
-                <Button Width="75" Height="30" Name="btnOpenFile" Click="btnOpenFile_Click" BorderBrush="White" Background="#FF00FF90">Open file</Button>
-                <Label Visibility="Hidden" Content="           Enter Input Count" Margin="5"/>
-                <ComboBox Name="Count" Height="30" Visibility="Hidden">
-                    <ComboBoxItem IsSelected="True">1</ComboBoxItem>
-                    <ComboBoxItem>2</ComboBoxItem>
-                    <ComboBoxItem>3</ComboBoxItem>
-                    <ComboBoxItem>4</ComboBoxItem>
-                    <ComboBoxItem>5</ComboBoxItem>
-                    <ComboBoxItem>6</ComboBoxItem>
-                    <ComboBoxItem>7</ComboBoxItem>
-                </ComboBox>
-                <Label Content="Export File"/>
-                <CheckBox Visibility="Visible" IsChecked="True"  Margin="5" Name="exportFile"/>
-                <Grid Margin="5,15,0,0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
+    <Grid Background="#0a3d62">
 
-                    </Grid.RowDefinitions>
-                    <TextBox Name="text0" Grid.Column = "0" Margin="0,0,10,0" FontSize="30" Width= "250" />
-                    <TextBox Name="text1" Grid.Column = "1" Margin="0,0,10,0" FontSize="30" Width= "250" />
-                    <TextBox Name="text2" Grid.Column = "2" Margin="0,0,10,0" FontSize="30" Width= "250"/>
-                    <TextBox Name="text3" Grid.Column = "3" Margin="0,0,10,0" FontSize="30" Width= "250" />
-                    <TextBox Name="text4" Grid.Column = "4" Margin="0,0,10,0" FontSize="30" Width= "250" />
-                    <TextBox Name="text5" Grid.Column = "5" Margin="0,0,10,0" FontSize="30" Width= "250" />
-                    <TextBox Name="text6" Grid.Column = "6" Margin="0,0,10,0" FontSize="30" Width= "250" />
-                    <TextBox Name="text7" Grid.Column = "7" Margin="0,0,10,0" FontSize="30" Width= "250"/>
-                    <TextBox Name="text8" Grid.Column = "8" Margin="0,0,10,0" FontSize="30" Width= "250" />
-                    <TextBox Name="text9" Grid.Column = "9" Margin="0,0,10,0" FontSize="30" Width= "250" />
-                </Grid>
-                <Button Click="Fetch_Data" Height="26" Margin="0,0,0,10" VerticalAlignment="Bottom" Background="#FF00FF90" Content="Fetch Data" Width="78"/>
-            </WrapPanel>
-            <TextBox Padding="5,5,0,0" Name="history" Text="History" FontWeight="Bold" FontSize="25" Margin="5,80,5,0" Width="250" Height="451" VerticalAlignment="Top"/>
-            <TextBox Padding="5,5,0,0" FontSize="24" Text="" Name="txtEditor" FontWeight="Bold" Margin="5,80,5,0"/>
-        </DockPanel>
-        <Label Content="History" VerticalAlignment="Top" Margin="5,165,95,0" Height="28"/>
-        <Button  Margin="10,5,0,80" Height="35" Background="#FF00FF90" Width="150" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="Clear_history">Clear History</Button>
-        <ProgressBar Minimum="0" Maximum="1" Name="progressBar" Height="20" VerticalAlignment="Bottom" Margin="5,779,5,0" Foreground="#FF12FDCD" BorderBrush="#FFD0FFFF" Background="#FFD3F9EE"/>
-        
-<!-- ComboBox for select channel name -->
-        <ComboBox Width="150" VerticalAlignment="Top" Height="50" Name="selectId"  HorizontalAlignment="Left" Margin="10,115,0,629">
-            <ComboBoxItem IsSelected="True">--Select Channel ID--</ComboBoxItem>
-        </ComboBox>
-        <ComboBox Width="150" VerticalAlignment="Top" Height="50" Name="selectId1"  HorizontalAlignment="Left" Margin="165,115,0,629" >
-            <ComboBoxItem IsSelected="True">--Select Channel ID--</ComboBoxItem>
-        </ComboBox>
-        <ComboBox Width="150" VerticalAlignment="Top" Height="50" Name="selectId2"  HorizontalAlignment="Left" Margin="320,115,0,629" >
-            <ComboBoxItem IsSelected="True">--Select Channel ID--</ComboBoxItem>
-        </ComboBox>
-        <ComboBox Width="150" VerticalAlignment="Top" Height="50" Name="selectId3"  HorizontalAlignment="Left" Margin="475,115,0,629" >
-            <ComboBoxItem IsSelected="True">--Select Channel ID--</ComboBoxItem>
-        </ComboBox>
-        <ComboBox Width="150" VerticalAlignment="Top" Height="50" Name="selectId4"  HorizontalAlignment="Left" Margin="630,115,0,629" >
-            <ComboBoxItem IsSelected="True">--Select Channel ID--</ComboBoxItem>
-        </ComboBox>
-        <Label VerticalAlignment="Top" Content="Select Channel ID" Margin="788,113,5,0"/>
-        <Button  Height="26" Background="#FF00FF90" Content="Select Channel from file" Width="200" VerticalAlignment="Top"  Click="GetChannelFromFile" Margin="15"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="280"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
 
+        <!-- File I/O -->
+        <Grid x:Name="InpOut" Grid.Row="0" Background="#82ccdd" Height="90" Margin="5" VerticalAlignment="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label FontWeight="Bold" Grid.Row="0" Grid.Column="1" VerticalAlignment="Top" HorizontalContentAlignment="Right" Content="Fetching"/>
+            <Label FontWeight="Bold" Grid.Row="0" Grid.Column="2" VerticalAlignment="Top" HorizontalContentAlignment="Left" Content="Data"/>
+
+            <Label Grid.Column="0" VerticalAlignment="Top" Grid.Row="1" HorizontalAlignment="Center" Content="Enter XML file"/>
+            <Button Grid.Column="0" VerticalAlignment="Bottom" Grid.Row="1" Height="26" Name="btnOpenFile" Margin="15,0,15,5" BorderBrush="#0c2461" Background="#079992" Click="btnOpenFile_Click">Open file</Button>
+
+            <Label Grid.Column="1"  Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" Content="Select Channel From File" />
+            <Button  Height="26" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" BorderBrush="#0c2461" Background="#079992" Content="Select Channel" Margin="15,0,15,5" Click="GetChannelFromFile"   />
+
+            <Label Grid.Column="2" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" Content="Export File"/>
+            <CheckBox Grid.Column="2" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Center"  IsChecked="True"  Margin="5" Name="exportFile"/>
+
+            <Label Visibility="Hidden" Grid.Row="1" Grid.Column="3" VerticalAlignment="Top" HorizontalAlignment="Center" Content="Enter Input Count"/>
+            <ComboBox Visibility="Hidden" Name="Count" Height="26" Margin="15,0,15,5" Grid.Row="1" VerticalAlignment="Bottom" Grid.Column="3">
+                <ComboBoxItem IsSelected="True">5</ComboBoxItem>
+                <ComboBoxItem>10</ComboBoxItem>
+                <ComboBoxItem>15</ComboBoxItem>
+                <ComboBoxItem>20</ComboBoxItem>
+                <ComboBoxItem>25</ComboBoxItem>
+                <ComboBoxItem>30</ComboBoxItem>
+            </ComboBox>
+        </Grid>
+
+        <!-- Channel name input area -->
+        <Grid x:Name="ChannelInput" Grid.Row="1" Margin="5,0,5,5" Height="250" Background="#82ccdd" >
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <TextBox Name="text0" Grid.Column = "0" Grid.Row="0" Margin="2" FontSize="18" />
+            <TextBox Name="text1" Grid.Column = "1" Grid.Row="0" Margin="2" FontSize="18" />
+            <TextBox Name="text2" Grid.Column = "2" Grid.Row="0" Margin="2" FontSize="18" />
+            <TextBox Name="text3" Grid.Column = "3" Grid.Row="0" Margin="2" FontSize="18" />
+            <TextBox Name="text4" Grid.Column = "4" Grid.Row="0" Margin="2" FontSize="18" />
+
+            <TextBox Name="text5" Grid.Column = "0" Grid.Row="1" Margin="2" FontSize="18" />
+            <TextBox Name="text6" Grid.Column = "1" Grid.Row="1" Margin="2" FontSize="18" />
+            <TextBox Name="text7" Grid.Column = "2" Grid.Row="1" Margin="2" FontSize="18" />
+            <TextBox Name="text8" Grid.Column = "3" Grid.Row="1" Margin="2" FontSize="18" />
+            <TextBox Name="text9" Grid.Column = "4" Grid.Row="1" Margin="2" FontSize="18" />
+
+            <TextBox Name="text10" Grid.Column = "0" Grid.Row="2" Margin="2" FontSize="18" />
+            <TextBox Name="text11" Grid.Column = "1" Grid.Row="2" Margin="2" FontSize="18" />
+            <TextBox Name="text12" Grid.Column = "2" Grid.Row="2" Margin="2" FontSize="18" />
+            <TextBox Name="text13" Grid.Column = "3" Grid.Row="2" Margin="2" FontSize="18" />
+            <TextBox Name="text14" Grid.Column = "4" Grid.Row="2" Margin="2" FontSize="18" />
+
+            <TextBox Name="text15" Grid.Column = "0" Grid.Row="3" Margin="2" FontSize="18" />
+            <TextBox Name="text16" Grid.Column = "1" Grid.Row="3" Margin="2" FontSize="18" />
+            <TextBox Name="text17" Grid.Column = "2" Grid.Row="3" Margin="2" FontSize="18" />
+            <TextBox Name="text18" Grid.Column = "3" Grid.Row="3" Margin="2" FontSize="18" />
+            <TextBox Name="text19" Grid.Column = "4" Grid.Row="3" Margin="2" FontSize="18" />
+
+            <TextBox Name="text20" Grid.Column = "0" Grid.Row="4" Margin="2" FontSize="18" />
+            <TextBox Name="text21" Grid.Column = "1" Grid.Row="4" Margin="2" FontSize="18" />
+            <TextBox Name="text22" Grid.Column = "2" Grid.Row="4" Margin="2" FontSize="18" />
+            <TextBox Name="text23" Grid.Column = "3" Grid.Row="4" Margin="2" FontSize="18" />
+            <TextBox Name="text24" Grid.Column = "4" Grid.Row="4" Margin="2" FontSize="18" />
+
+            <TextBox Name="text25" Grid.Column = "0" Grid.Row="5" Margin="2" FontSize="18" />
+            <TextBox Name="text26" Grid.Column = "1" Grid.Row="5" Margin="2" FontSize="18" />
+            <TextBox Name="text27" Grid.Column = "2" Grid.Row="5" Margin="2" FontSize="18" />
+            <TextBox Name="text28" Grid.Column = "3" Grid.Row="5" Margin="2" FontSize="18" />
+            <TextBox Name="text29" Grid.Column = "4" Grid.Row="5" Margin="2" FontSize="18" />
+
+            <ComboBox Grid.Column="0" Grid.Row="6" Margin="2" Name="selectId0">
+                <ComboBoxItem IsSelected="True">--Select Channel ID--</ComboBoxItem>
+            </ComboBox>
+
+            <ComboBox Grid.Column="1" Grid.Row="6" Margin="2" Name="selectId1">
+                <ComboBoxItem IsSelected="True">--Select Channel ID--</ComboBoxItem>
+            </ComboBox>
+
+            <ComboBox Grid.Column="2" Grid.Row="6" Margin="2" Name="selectId2">
+                <ComboBoxItem IsSelected="True">--Select Channel ID--</ComboBoxItem>
+            </ComboBox>
+
+            <ComboBox Grid.Column="3" Grid.Row="6" Margin="2" Name="selectId3">
+                <ComboBoxItem IsSelected="True">--Select Channel ID--</ComboBoxItem>
+            </ComboBox>
+
+            <Button Grid.Row="6" Grid.Column="4" BorderBrush="#0c2461" Background="#079992" Content="Fetch Data" FontWeight="Bold" Margin="2" Click="Fetch_Data" />
+        </Grid>
+
+        <!-- History/Data -->
+        <Grid x:Name="Data" Grid.Row="2" Margin="5,0,5,5" Background="#82ccdd">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+
+            <Label Content="History" Grid.Row="0" Grid.Column="0"  VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="Bold" FontSize="16"/>
+            <TextBox x:Name="history" Grid.Row="1" Grid.Column="0" Margin="5,5,5,0" />
+            <Button  Grid.Row="2" Grid.Column="0" BorderBrush="#0c2461" Background="#079992" Content="Clear History" FontWeight="Bold" Margin="5" Click="Clear_history" />
+
+            <Label Content="Data" Grid.Row="0" Grid.Column="1"  HorizontalAlignment="Center" FontWeight="Bold" FontSize="16"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Padding="5,5,0,0" FontSize="24" Text="" Name="txtEditor" FontWeight="Bold" Margin="5,5,5,0"/>
+        </Grid>
     </Grid>
 </Window>
