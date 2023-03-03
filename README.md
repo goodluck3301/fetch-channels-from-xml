@@ -2,7 +2,7 @@
 - Fetch Channels From XML File
 
 
-![ur](https://github.com/goodluck3301/FetchChannelsFromXML/blob/master/FetchFromXML/bin/Debug/net6.0-windows/Capture.PNG)
+![image](https://user-images.githubusercontent.com/100533325/222794866-e6ced153-78c4-4998-ba56-1d83f965b0a5.png)
 
 
 ## XML File Must Contain This Tags & Atributes
